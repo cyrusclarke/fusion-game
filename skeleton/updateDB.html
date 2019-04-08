@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title></title>
+	  <meta name="description" content="">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<style>
+		body{
+			background-color:'blue';
+			width: 1300px;
+    		height: 800px;
+		}
+	</style>
+	<body>
+	</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script src="firebase.js"></script>
+<script>
+
+
+
+
+
+	var holo = firebase.database().ref('/fusionDB/hologram');
+	//we want to populate hologram with a new state
+	holo.update({
+		state:1
+	})
+
+
+
+
+
+
+	var index = 0;
+	var dScreen = firebase.database().ref('/fusionDB/dScreen');
+	dScreen.update({
+		state:index
+	})
+	$('body').on("click", function(){
+		index++;
+		console.log(index);
+		//we want to populate dscreen with a new state
+		dScreen.update({
+			state:index
+		})
+	})
+
+
+
+	var pov = firebase.database().ref('/fusionDB/pov/');
+	//we want to populate pov with a new state
+	pov.update({
+		pov1:
+			{
+				state:12
+			},
+		pov2:
+			{
+				state:3
+			}		
+	})
+
+
+
+
+
+	//everytime you call this you chuck it in
+	var fusionPaths = firebase.database().ref('/fusionPaths');
+	fusionPaths.push({
+		pathVal:112
+	})
+
+
+
+
+
+</script>
+</html>
